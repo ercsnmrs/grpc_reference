@@ -1,0 +1,88 @@
+GRPC
+
+
+CLI Commands
+    // I is to know where to find inputs
+    // go_out Where to generate the code
+    // greet/proto/dummy.proto files wanted to compile
+    // --go-grpc_opt=module= remove the module name to the go pkg
+
+    protoc -I greet/proto --go_out=. --go_opt=module=github.com/ercsnmrs/grpc_reference --go-grpc_out=. --go-grpc_opt=module=github.com/ercsnmrs/grpc_reference greet/proto/dummy.proto
+
+    // In running `make greet` creates a executable file | See make file on repository
+    ./bin/greet/server ./bin/greet/client
+
+GRPC need to agree on
+    -API to exchange data
+    -Data Format
+    -Error Patterns
+    -Many other things
+
+Building API is hard
+    - Payload Size
+    - Latency
+    - Scalability
+    - Load Balancing
+    - Language Interop
+    - Auth, Monitoring, Log
+
+GRPC
+    - Open source framework by Google
+    - Modern, Fast and support HTTP2
+
+RPC
+    - Remote Procudre Goal
+
+Theory and GRPC Internals Deep Dive
+Protocol Buffers and Language Interop
+    - Why Protocol Buffer
+     - efficiency over JSON (52 bytes vs 17 bytes)
+     - Less CPU intensive (binary)
+     - Faster
+     - For Mobile and Microcontrollers
+      - Inutive Message Definition
+    - 4 main language supported
+     - Java, Go, C#, C (C++, Python)
+
+HTTP2
+    - Most of the web works on HTTP1
+     - Open Connection per Request
+     - Plaintext Header (doesnt compile header)
+     - Request / Response 
+    - Http2 vs 1.1
+     - One TCP Connection
+     - Supports Server push, can push multiple request from 1 client
+     - Multiplexing, server and client can push multiple messages in pallarel in one Connection
+     - Headers and Data are compressed to binary (very light) less bandwith
+     - SSL is required by default for hTTP 2
+
+Types of API GRPC
+    - Unary
+        - Closest to Rest API
+        - Response Request
+    - Server Streaming
+        - Client will send one request, but server can return more than one response
+    - Client Streaming
+        - Many Request, One Response (Uploading or Updating information)
+    - Bi directional streaming
+        - Many Request Many Response
+
+Scalability in GRPC
+    - Server is Asynchronous
+    - Client Async or Blocking
+
+Security in GRPC
+    - Schema Based Serialization (Field Typed)
+    - Easy SSL Certificates Initialization
+    - Interceptors for Auth Features
+
+gRPC vs Rest
+    - Prefer Strict Type
+    - Streaming vs Unary
+    - BiDirectional vs Client->Server
+    Reference
+        - https://learn.microsoft.com/en-us/aspnet/core/grpc/comparison?view=aspnetcore-3.0#strict-specification
+        - https://www.slideshare.net/borisovalex/grpc-vs-rest-let-the-battle-begin-81800634
+
+Random Notes:
+    - Running witout SSL would trigger `no transport security set` issue
