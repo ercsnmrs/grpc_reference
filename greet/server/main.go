@@ -26,6 +26,10 @@ func main() {
 	log.Printf("Listening on %s\n", addr)
 
 	s := grpc.NewServer()
+	// Register Service Server
+	// Use the service to implement the rpc endpoints
+	
+	pb.RegisterGreetServiceServer(s, &Server{})
 
 	if err = s.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v\n", err)
