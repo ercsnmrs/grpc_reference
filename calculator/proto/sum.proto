@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/ercsnmrs/grpc_reference/calculator/proto";
+
+message SumRequest {
+    int32 addends1 = 3;
+    int32 addends2 = 10;
+}
+
+message SumResponse {
+    int32 result = 1;
+}
