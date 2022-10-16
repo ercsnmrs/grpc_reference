@@ -7,7 +7,7 @@ import (
 	pb "github.com/ercsnmrs/grpc_reference/calculator/proto"
 )
 
-func doSum(c pb.CalulatorServiceClient) {
+func doSum(c pb.CalculatorServiceClient) {
 	log.Println("doSum was invoked")
 	res, err := c.Sum(context.Background(), &pb.SumRequest{
 		Addends1: 3,

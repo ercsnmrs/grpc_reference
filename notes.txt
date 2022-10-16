@@ -86,3 +86,4 @@ gRPC vs Rest
 
 Random Notes:
     - Running witout SSL would trigger `no transport security set` issue
+    - 1st Step Is to go to proto gree_grpc.pb.go find server streaming signature

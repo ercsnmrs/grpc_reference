@@ -13,7 +13,7 @@ var addr string = "0.0.0.0:50051"
 // Create Grpc Server Object
 // We will be able to implement all the RPC endpoints that we will define in our greet proto
 type Server struct {
-	pb.CalulatorServiceServer
+	pb.CalculatorServiceServer
 }
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 	// Register Service Server
 	// Use the service to implement the rpc endpoints
 	
-	pb.RegisterCalulatorServiceServer(s, &Server{})
+	pb.RegisterCalculatorServiceServer(s, &Server{})
 
 	if err = s.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v\n", err)

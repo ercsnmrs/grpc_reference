@@ -22,7 +22,8 @@ func main() {
 	// defer will execute XXX at the end of the function
 	defer conn.Close()
 
-	c:= pb.NewGreetServiceClient(conn)
+	c := pb.NewGreetServiceClient(conn)
 
-	doGreet(c)
+	//doGreet(c)
+	doGreetManyTimes(c)
 }

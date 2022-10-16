@@ -22,7 +22,8 @@ func main() {
 	// defer will execute XXX at the end of the function
 	defer conn.Close()
 
-	c:= pb.NewCalulatorServiceClient(conn)
+	c := pb.NewCalculatorServiceClient(conn)
 
-	doSum(c)
+	// doSum(c)
+	doPrimes(c)
 }
