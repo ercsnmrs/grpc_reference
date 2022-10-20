@@ -12,6 +12,8 @@ CLI Commands
     // In running `make greet` creates a executable file | See make file on repository
     ./bin/greet/server ./bin/greet/client
 
+    USE BC command for calculator
+
 GRPC need to agree on
     -API to exchange data
     -Data Format
