@@ -18,7 +18,7 @@ func doGreetManyTimes(c pb.GreetServiceClient) error {
 
 	stream, err := c.GreetManyTimes(context.Background(), req)
 	if err != nil {
-		log.Fatalf("Error while calling GreetManyTimes: %v\n", err)
+		log.Fatalf("Error while creating stream: %v\n", err)
 	}
 
 	for {
