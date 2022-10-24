@@ -7,6 +7,7 @@ import (
 	pb "github.com/ercsnmrs/grpc_reference/greet/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/reflection"
 )
 
 var addr string = "0.0.0.0:50051"
@@ -27,7 +28,7 @@ func main() {
 	log.Printf("Listening on %s\n", addr)
 
 	opts := []grpc.ServerOption{}
-	tls := true //change that to false if needed
+	tls := false //change that to false if needed
 	if tls {
 		certFile := "ssl/server.crt"
 		keyFile := "ssl/server.pem"
@@ -46,6 +47,7 @@ func main() {
 	// Register Service Server
 	// Use the service to implement the rpc endpoints
 	pb.RegisterGreetServiceServer(s, &Server{})
+	reflection.Register(s)
 
 	if err = s.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v\n", err)

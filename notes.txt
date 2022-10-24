@@ -86,6 +86,10 @@ gRPC vs Rest
         - https://learn.microsoft.com/en-us/aspnet/core/grpc/comparison?view=aspnetcore-3.0#strict-specification
         - https://www.slideshare.net/borisovalex/grpc-vs-rest-let-the-battle-begin-81800634
 
+EVANS:
+    - show message is to show request and response
+    - show service is to show sevices
+
 Random Notes:
     - Running witout SSL would trigger `no transport security set` issue
     - 1st Step Is to go to proto gree_grpc.pb.go find server streaming signature
