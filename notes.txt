@@ -90,6 +90,9 @@ EVANS:
     - show message is to show request and response
     - show service is to show sevices
 
+MongoDB
+    - uses BSON, just like JSON but used for mdb internally
+
 Random Notes:
     - Running witout SSL would trigger `no transport security set` issue
     - 1st Step Is to go to proto gree_grpc.pb.go find server streaming signature

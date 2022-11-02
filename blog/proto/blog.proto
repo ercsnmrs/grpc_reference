@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package blog;
+
+option go_package = "github.com/ercsnmrs/grpc_reference/blog/proto";
+
+import "google/protobuf/empty.proto";
+
+message Blog {
+    // Mongodb is using UUID 
+    // Can be byte or string
+    string id = 1;
+    string author_id = 2;
+    string title = 3;
+    string content = 4;
+}
+
+message BlogId {
+    string id = 1;
+
+}
+
+service BlogService {
+    rpc CreateBlog (Blog) returns (BlogId);
+    rpc ReadBlog (BlogId) returns (Blog);
+    rpc UpdateBlog (Blog) returns (google.protobuf.Empty); // It is empty because this endopoint already have the information about the Blog that was updated
+    rpc DeleteBlog (BlogId) returns (google.protobuf.Empty);
+    rpc ListBlogs (google.protobuf.Empty) returns (stream Blog);
+}
