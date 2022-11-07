@@ -27,4 +27,6 @@ func main() {
 	// ReadBlog(c, "InvaliDIDHere")
 	UpdateBlog(c, id)
 	ListBlog(c)
+	DeleteBlog(c, id)
+	ListBlog(c)
 }
