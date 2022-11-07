@@ -26,4 +26,5 @@ func main() {
 	ReadBlog(c, id) // should be valid
 	// ReadBlog(c, "InvaliDIDHere")
 	UpdateBlog(c, id)
+	ListBlog(c)
 }
